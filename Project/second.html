@@ -1,55 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content=
-        "width=device-width, initial-scale=1.0">
-    <title>
-        
-    </title>
- 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Leave Management System</title>
+
     <style>
- 
-        /* Styling the Body element i.e. Color,
-        Font, Alignment */
+        /* Styling the Body element i.e. Color, Font, Alignment */
         body {
             background-image: url(https://images.shiksha.com/mediadata/images/1556094923phpfR7CHx.jpeg);
             font-family: Verdana;
             text-align: center;
             background-repeat: no-repeat;
-            background-size: 100%;
+            background-size: cover;
         }
-    
- 
+
         /* Styling the Form (Color, Padding, Shadow) */
         form {
             background-color: rgb(141, 189, 160);
             border-style: none;
-            border-radius:25px;
+            border-radius: 25px;
             border-width: 5px;
             max-width: 500px;
             height: 600px;
             margin: 50px auto;
             padding: 14px 16px;
             box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(18px) saturate(195%);
+            -webkit-backdrop-filter: blur(18px) saturate(195%);
+            background-color: rgba(17, 25, 40, 0.6);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.125);
         }
- 
+
         /* Styling form-control Class */
         .form-control {
             text-align: left;
             margin-bottom: 25px;
         }
- 
+
         /* Styling form-control Label */
         .form-control label {
             display: block;
             margin-bottom: 10px;
         }
- 
-        /* Styling form-control input,
-        select, textarea */
+
+        /* Styling form-control input, select, textarea */
         .form-control input,
         .form-control select,
         .form-control textarea {
@@ -59,16 +57,16 @@
             padding: 10px;
             display: block;
             width: 95%;
+            box-sizing: border-box;
         }
- 
-        /* Styling form-control Radio
-        button and Checkbox */
+
+        /* Styling form-control Radio button and Checkbox */
         .form-control input[type="radio"],
         .form-control input[type="checkbox"] {
             display: inline-block;
             width: auto;
         }
- 
+
         /* Styling Button */
         button {
             background-color: #05c46b;
@@ -79,83 +77,119 @@
             margin-top: 40px;
             margin-bottom: 20px;
         }
+
+        /* Styling Pop-up Dialog Box */
+        .popup {
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 0s, opacity 0.5s;
+        }
+
+        .popup.show {
+            visibility: visible;
+            opacity: 1;
+            transition: visibility 0s, opacity 0.5s;
+        }
+
+        /* Responsive Styles */
+        @media only screen and (max-width: 600px) {
+            form {
+                height: auto;
+            }
+
+            button {
+                width: 60%;
+            }
+        }
+
+        label {
+            color: white;
+            font-size: 16px;
+        }
     </style>
 </head>
-  
-<body>
 
-  
+<body>
     <!-- Create Form -->
     <form id="form">
- 
         <!-- Details -->
         <div class="form-control">
-            <label for="Leave Reason" id="label-name">
-                Leave Reason
-            </label>
-             
+            <label for="leave-reason" id="label-name">Leave Reason</label>
             <!-- Dropdown options -->
-            <select name="role" id="role">
+            <select name="leave-reason" id="leave-reason">
                 <option value="Leave Reason">Leave Reason</option>
                 <option value="Medical Problem">Medical Problem</option>
-                <option value="personal Problem">personal Problem</option>
+                <option value="Personal Problem">Personal Problem</option>
             </select>
         </div>
         <div class="form-control">
-            <label for="Reason in Detail">
-              Reason in Detail  
-            </label>
- 
-            <!-- multi-line text input control -->
-            <textarea name="comment" id="comment"
-                placeholder="Enter your comment here">
-            </textarea>
+            <label for="comment">Reason in detail</label>
+            <textarea id="comment" name="comment" rows="4" style="resize: none;" required></textarea>
         </div>
-  
         <div class="form-control">
-            <label for="Section" id="label-age">
-                Section
-            </label>
- 
-            
+            <label for="section" id="label-section">Section</label>
             <!-- Dropdown options -->
-            <select name="role" id="role">
+            <select name="section" id="section">
                 <option value="Sections">Sections</option>
                 <option value="A">A</option>
                 <option value="B">B</option>
                 <option value="C">C</option>
             </select>
-            </div>
-            <div class="form-control">
-                <label for=""label-age">
-                    Tutor
-                </label>
-     
-                
-                <!-- Dropdown options -->
-                <select name="role" id="role">
-                    <option value="Tutor">Tutor</option>
-                    <option value="Shefali khandelwal/Dinesh Bhatia">Shefali khandelwal/Dinesh Bhatia</option>
-                    <option value="Vivek Sharma">vivek sharma</option>
-                </select>  
+        </div>
+        <div class="form-control">
+            <label for="tutor" id="label-tutor">Tutor</label>
+            <!-- Dropdown options -->
+            <select name="tutor" id="tutor">
+                <option value="Tutor">Tutor</option>
+                <option value="Shefali Khandelwal/Dinesh Bhatia">Shefali Khandelwal/Dinesh Bhatia</option>
+                <option value="Vivek Sharma">Vivek Sharma</option>
+            </select>
         </div>
         <div class="container">
-          <center>
-            <spain><i class="fa fa-cloud upload text-light fa-5x" aria-hidden="true"></i></spain>
-            <p class="text-light">Upload document</p>
-          <form>
-          <input type="file" id="file" class=""text-light>
-          </form>
-          </center>
-          <button type="submit" value="submit">
-            Submit
-        </button>
+            <center>
+                <span><i class="fa fa-cloud upload text-light fa-5x" aria-hidden="true"></i></span>
+                <p class="text-light">Upload document</p>
+                <input type="file" id="file" class="text-light">
+            </center>
         </div>
-
-           <div> 
-        <!-- Multi-line Text Input Control -->
-       
-        </div>
+        <button type="button" onclick="submitForm()">Submit</button>
     </form>
+
+    <!-- Pop-up Dialog Box -->
+    <div id="popup-dialog" class="popup">
+        Submitted successfully
+    </div>
+
+    <script>
+        function submitForm() {
+            var reason = document.getElementById("comment").value;
+            var section = document.getElementById("section").value;
+
+            if (reason === "" || section === "Sections") {
+                alert("Please fill in the required fields.");
+                return;
+            }
+
+            showPopup();
+        }
+
+        function showPopup() {
+            var popup = document.getElementById("popup-dialog");
+            popup.classList.add("show");
+
+            setTimeout(function () {
+                popup.classList.remove("show");
+            }, 3000); // Show for 3 seconds
+        }
+    </script>
 </body>
-  </html>
+
+</html>
