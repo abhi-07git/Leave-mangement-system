@@ -1,34 +1,31 @@
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <meta charset+"utf-8">
+    <meta charset="utf-8">
     <title></title>
     <link rel="stylesheet" href="style.css">
-
 </head>
 
-
 <body>
-
-<div class="login-box">
-    
-    <div class="textbox">
-        <label>Student Name</label> 
-        <input type="text" placeholder="name">
-    </div>
-    <div class="textbox">
-    <label> College Mail-id</label> 
-    <input type="text" placeholder="mail-id">  
-    </div>
-    <div class="textbox">
-        <label> Registration ID</label>
-        <input type="text" placeholder="ID">
-    </div>
-    <div>
-        <form action="second.html">
-        <input type="submit" class="btn" value="Sign in">
+    <div class="login-box">
+        <form action="second.html" method="POST">
+            <div class="textbox">
+                <label>Student Name</label> 
+                <input type="text" placeholder="name">
+            </div>
+            <div class="textbox">
+                <label>College Mail-id</label> 
+                <input type="text" placeholder="mail-id" required> <!-- Added the 'required' attribute -->
+            </div>
+            <div class="textbox">
+                <label>Registration ID</label>
+                <input type="text" placeholder="ID" required> <!-- Added the 'required' attribute -->
+            </div>
+            <div>
+                <button type="submit" class="btn" >Sign-in></button>
+            </div>
         </form>
     </div>
-</div>
 </body>
 </html>
